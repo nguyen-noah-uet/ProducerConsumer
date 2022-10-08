@@ -31,7 +31,7 @@ public class ProducerConsumer
 			_buffer.Enqueue(producedValue);
 			Console.Write("Added " + producedValue + ".\t");
 			ShowInfo();
-			Thread.Sleep(1000);
+			Thread.Sleep(100);
 			#endregion
 
 			// Release lock.
@@ -41,7 +41,7 @@ public class ProducerConsumer
 
 
 
-		} while ((DateTime.Now - _start).Seconds < 10);
+		} while ((DateTime.Now - _start).Seconds < 100);
 	}
 
 
@@ -59,7 +59,7 @@ public class ProducerConsumer
 			int consumedValue = _buffer.Dequeue();
 			Console.Write("Removed " + consumedValue + ".\t");
 			ShowInfo();
-			Thread.Sleep(1000);
+			Thread.Sleep(100);
 			#endregion
 			// Release lock.
 			_mutex.Release();
@@ -68,7 +68,7 @@ public class ProducerConsumer
 
 
 
-		} while ((DateTime.Now - _start).Seconds < 10);
+		} while ((DateTime.Now - _start).Seconds < 100);
 	}
 	private void ShowInfo()
 	{
